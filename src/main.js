@@ -10,6 +10,7 @@ const fullUrl = `${BASE_URL}?key=${API_KEY}`;
 const form = document.querySelector('.searchPhotos');
 const cardContainer = document.querySelector('.card_container');
 
+
 const loader = document.createElement('div');
 loader.classList.add('loader');
 
@@ -24,7 +25,7 @@ function hideLoader() {
 form.addEventListener('submit', handleSubmit);
 
 function fetchImages(q) {
-  showLoader();
+  showLoader(); 
 
   const params = new URLSearchParams({
     key: API_KEY,
@@ -72,7 +73,7 @@ function handleSubmit(event) {
     })
     .finally(() => {
       hideLoader(); 
-      searchInput.value = '';
+      searchInput.value = ''; 
     });
 }
 
@@ -88,7 +89,7 @@ function createMarkup(images) {
     const img = document.createElement('img');
     img.src = image.webformatURL;
     img.alt = image.tags;
-
+    
     card.appendChild(img);
     cardContainer.appendChild(card);
   });
