@@ -3,7 +3,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const BASE_URL = 'https://pixabay.com/api';
+const BASE_URL = `${window.location.protocol}//pixabay.com/api`;
 const API_KEY = '42024454-8ed2ac239bcd0125bd4fa3d9e';
 const fullUrl = `${BASE_URL}?key=${API_KEY}`;
 
