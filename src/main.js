@@ -7,7 +7,7 @@ const BASE_URL = `https://pixabay.com/api/`;
 const API_KEY = '42024454-8ed2ac239bcd0125bd4fa3d9e';
 
 
-const form = document.querySelector('.searchPhotos');
+const form = document.querySelector('.handleSearchSubmit');
 const cardContainer = document.querySelector('.card_container');
 
 const loader = document.createElement('div');
@@ -23,7 +23,7 @@ function hideLoader() {
   document.body.removeChild(loader);
 }
 
-form.addEventListener('submit', handleSubmit);
+form.addEventListener('submit', onSearchSubmit);
 
 function fetchImages(q) {
   showLoader();
@@ -46,7 +46,7 @@ function fetchImages(q) {
   });
 }
 
-function handleSubmit(event) {
+function onSearchSubmit(event) {
   event.preventDefault();
 
   const searchInput = form.elements.search;
@@ -81,7 +81,7 @@ function handleSubmit(event) {
 }
 
 function createMarkup(images) {
-  console.log(images);
+
   cardContainer.innerHTML = '';
 
   images.forEach(image => {
