@@ -3,15 +3,17 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const BASE_URL = `${window.location.protocol}//pixabay.com/api/`;
+const BASE_URL = `https://pixabay.com/api/`;
 const API_KEY = '42024454-8ed2ac239bcd0125bd4fa3d9e';
-const fullUrl = `${BASE_URL}?key=${API_KEY}`;
+
 
 const form = document.querySelector('.searchPhotos');
 const cardContainer = document.querySelector('.card_container');
 
 const loader = document.createElement('div');
 loader.classList.add('loader');
+loader.textContent = 'Loading...';
+
 
 function showLoader() {
   document.body.appendChild(loader);
@@ -74,7 +76,7 @@ function handleSubmit(event) {
     })
     .finally(() => {
       hideLoader();
-      searchInput.value = '';
+      form.reset();
     });
 }
 
